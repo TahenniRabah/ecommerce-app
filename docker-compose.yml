@@ -1,0 +1,12 @@
+services:
+  backend:
+    build:
+      context: ./backend/ecommerce_api
+      args:
+        DEV: "true"
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./backend/ecommerce_api/app:/app
+    command: >
+      sh -c "python manage.py runserver 0.0.0.0:5000"
